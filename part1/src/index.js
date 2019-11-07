@@ -1,13 +1,15 @@
+import getTime from "./getTime";
 console.log("hello world")
 
-const getTime = () => {
-const currentDate = new Date();
-document.querySelector('#hour').innerHTML = currentDate.getHours() % 12;
-document.querySelector('#minutes').innerHTML = currentDate.getMinutes();
-document.querySelector('#seconds').innerHTML = currentDate.getSeconds();
+const setTime = () => {
+const {hour, minute, sec} = getTime();
+document.querySelector('#hour').innerHTML = hour;
+document.querySelector('#minutes').innerHTML = minute;
+document.querySelector('#seconds').innerHTML = sec;
 
 setTimeout(() =>{ 
-	 getTime();
+	 setTime();
 }, 1000);	
 }
-getTime();
+
+setTime();
